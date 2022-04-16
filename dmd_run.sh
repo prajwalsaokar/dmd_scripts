@@ -1,3 +1,4 @@
+#!/bin/bash
 source dmd.config
 
 cd "PRIME_$project_name"
