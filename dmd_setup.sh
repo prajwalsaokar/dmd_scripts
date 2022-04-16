@@ -1,5 +1,6 @@
 #!/bin/bash
 source dmd.config
+source $compiler_variables_path
 
 wget -O PRIME.tar.gz https://www.dropbox.com/s/008pb524dfnkhcj/PRIME.tar.gz?dl=1
 mkdir "PRIME_$project_name"
