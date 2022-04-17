@@ -31,7 +31,7 @@ sed -i "s/boxl = 159.0d0/boxl = ${box_length}d0/" code/inputinfo.f
 sed -i "s|source /usr/local/bin/setupics|source $compiler_variables_path|" qfile/subscript.sh
 sed -i "s/dmd/$project_name/g" qfile/subscript.sh
 
-sed -i "s/Dnop1=100/Dnop=$(echo $number_beads_without_glycines_peptide_1*$chain_number_peptide_1 | bc)/" qfile/subscript.sh 
+sed -i "s/Dnop1=1008/Dnop1=$(echo $number_beads_without_glycines_peptide_1*$chain_number_peptide_1 | bc)/" qfile/subscript.sh 
 sed -i "s/Dnop2=1008/Dnop2=$(echo $number_beads_without_glycines_peptide_2*$chain_number_peptide_2 | bc)/" qfile/subscript.sh
 sed -i "s/Dchnln1=22/Dchnln1=$chain_length_peptide_1/" qfile/subscript.sh
 sed -i "s/Dchnln2=22/Dchnln2=$chain_length_peptide_2/" qfile/subscript.sh
