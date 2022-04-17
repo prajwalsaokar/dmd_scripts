@@ -7,7 +7,6 @@ mkdir "PRIME_$project_name"
 tar -xvzf PRIME.tar.gz -C "PRIME_$project_name"
 rm PRIME.tar.gz
 cd "PRIME_$project_name"
-rm *temp*
 
 cp -f ../identity1.config genconfig/inputs/identity1.inp
 cp -f ../identity2.config genconfig/inputs/identity2.inp
