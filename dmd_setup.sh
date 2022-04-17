@@ -29,7 +29,7 @@ cd ../
 cp -r genconfig/parameters/. parameters/
 cp -r genconfig/results/. results/
 sed -i "s/boxl = 159.0d0/boxl = ${box_length}d0/" code/inputinfo.f
-sed -i "s|source /usr/local/bin/setupics/|source $compiler_variables_path|" qfile/subscript.sh
+sed -i "s|source /usr/local/bin/setupics|source $compiler_variables_path|" qfile/subscript.sh
 sed -i "s/dmd/$project_name/g" qfile/subscript.sh
 
 sed -i "s/Dnop1=100/Dnop=$(echo $number_beads_without_glycines_peptide_1*$chain_number_peptide_1 | bc)/" qfile/subscript.sh 
