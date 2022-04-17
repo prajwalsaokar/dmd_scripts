@@ -2,7 +2,7 @@
 source dmd.config
 source $compiler_variables_path
 
-wget -O PRIME.tar.gz https://www.dropbox.com/s/008pb524dfnkhcj/PRIME.tar.gz?dl=1
+wget -O PRIME.tar.gz https://www.dropbox.com/s/7odjjse2fxf3ujd/PRIME.tar.gz?dl=1
 mkdir "PRIME_$project_name"
 tar -xvzf PRIME.tar.gz -C "PRIME_$project_name"
 rm PRIME.tar.gz
@@ -27,9 +27,9 @@ ifort gen_config_random-SQZ.f90
 cd ../
 
 cp -r genconfig/parameters/. parameters/
-cp -r genconfig/results/. results/
+cp -r genconfig/results/. results/d
 sed -i "s/boxl = 159.0d0/boxl = ${box_length}d0/" code/inputinfo.f
-sed -i "s|source /usr/local/bin/setupics/|source $compiler_variables_path|" qfile/subscript.sh
+sed -i "s|source /usr/local/bin/setupics|source $compiler_variables_path|" qfile/subscript.sh
 sed -i "s/dmd/$project_name/g" qfile/subscript.sh
 
 sed -i "s/Dnop1=100/Dnop=$(echo $number_beads_without_glycines_peptide_1*$chain_number_peptide_1 | bc)/" qfile/subscript.sh 
