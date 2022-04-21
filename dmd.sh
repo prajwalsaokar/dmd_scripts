@@ -6,11 +6,11 @@ print_help() {
   dmd.sh
 
   Usage:
-    dmd.sh --setup
-    dmd.sh --run
+    dmd.sh -setup
+    dmd.sh -run
   Options:
-    --setup : Download and set peptide parameters for the simulation
-    --run : Use the defined temperature and collision number to run the simulation
+    -setup : Download and set peptide parameters for the simulation
+    -run : Use the defined temperature and collision number to run the simulation
 
 EOF
 }
@@ -66,10 +66,10 @@ run() {
 }
 
 case "$1" in
-  --setup)
+  -setup)
     setup
     ;;
-  --run)
+  -run)
     run
     ;;
   *)
