@@ -1,14 +1,10 @@
-source dmd.config
-source $compiler_variables_path
-
 print_help() {
   cat <<EOF
   dmd.sh
 
   Usage:
-    dmd.sh -setup
-    dmd.sh -run
-  Options:
+    dmd.sh [command]
+  Command Options:
     -setup : Download and set peptide parameters for the simulation
     -run : Use the defined temperature and collision number to run the simulation
 
@@ -16,6 +12,8 @@ EOF
 }
 
 setup() {
+  source dmd.config
+  source $compiler_variables_path
   wget -O PRIME.tar.gz https://www.dropbox.com/s/7odjjse2fxf3ujd/PRIME.tar.gz?dl=1
   mkdir "PRIME_$project_name"
   tar -xvzf PRIME.tar.gz -C "PRIME_$project_name"
@@ -55,6 +53,8 @@ setup() {
 }
 
 run() {
+  source dmd.config
+  source $compiler_variables_path
   cd "PRIME_$project_name"
   sed -i "s/temp_0195/temp_0$(echo $reduced_temperature_value*1000 / 1 | bc)/" qfile/subscript.sh
   sed -i "s/out_0195/out_0$(echo reduced_temperature_value*1000 | bc)/" qfile/subscript.sh
